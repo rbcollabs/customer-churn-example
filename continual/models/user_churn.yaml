@@ -1,5 +1,5 @@
 type: Model
-name: kkbox_user_churn
+name: user_churn
 index: msno
 time_index: ts
 target: is_churn
@@ -20,4 +20,6 @@ exclude_columns:
 train:
   metric: roc_auc
 query: |
-  select * from dbt.demo_kkbox_churn.churn_model_definition
+  select * from dbt.demo_kkbox_churn.churn_model_definition as A
+  where msno in (select distinct msno from dbt.demo_kkbox_churn.user_logs_all)
+  and ts in (select distinct ts from dbt.demo_kkbox_churn.user_logs_all where msno = A.msno)

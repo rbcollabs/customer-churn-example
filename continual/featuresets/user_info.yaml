@@ -1,0 +1,16 @@
+type: FeatureSet
+name: user_info
+entity: kkbox_user
+index: msno
+description: User Info
+owners:
+  - jordan@continual.ai
+documentation: |
+    https://docs.continual.ai/customer-churn/
+columns:
+  - name: registered_via
+    type: CATEGORICAL
+  - name: city
+    type: CATEGORICAL
+query: |
+  select * from dbt.demo_kkbox_churn.members_all

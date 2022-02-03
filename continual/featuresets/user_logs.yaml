@@ -1,0 +1,15 @@
+type: FeatureSet
+name: user_logs
+entity: kkbox_user
+index: msno
+time_index: ts
+description: user logs
+owners:
+  - jordan@continual.ai
+documentation: |
+    https://docs.continual.ai/customer-churn/
+exclude_columns:
+  - date
+  - log_date
+query: |
+  select * from dbt.demo_kkbox_churn.user_logs_all

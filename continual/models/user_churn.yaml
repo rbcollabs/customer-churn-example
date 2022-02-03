@@ -1,0 +1,23 @@
+type: Model
+name: kkbox_user_churn
+index: msno
+time_index: ts
+target: is_churn
+split: split
+description: kkbox 30 day user churn
+owners:
+  - jordan@continual.ai
+documentation: |
+    https://docs.continual.ai/customer-churn/
+columns:
+  - name: msno
+    type: TEXT
+    entity: kkbox_user
+exclude_columns:
+  - next_transaction
+  - most_recent_transaction
+  - days_expired
+train:
+  metric: roc_auc
+query: |
+  select * from dbt.demo_kkbox_churn.churn_model_definition

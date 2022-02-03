@@ -1,0 +1,22 @@
+type: FeatureSet
+name: user_transactions
+entity: kkbox_user
+index: msno
+time_index: ts
+description: user transactions
+owners:
+  - jordan@continual.ai
+documentation: |
+    https://docs.continual.ai/customer-churn/
+columns:
+  - name: payment_method_id
+    type: CATEGORICAL
+  - name: is_auto_renew
+    type: BOOLEAN
+  - name: most_recent_transaction_cancel
+    type: BOOLEAN
+exclude_columns:
+  - days_expired
+  - cutoff_dt
+query: |
+  select * from dbt.demo_kkbox_churn.transactions_final

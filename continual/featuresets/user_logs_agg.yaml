@@ -1,0 +1,12 @@
+type: FeatureSet
+name: user_logs_agg
+entity: kkbox_user
+index: msno
+time_index: ts
+description: user logs aggregated
+owners:
+  - jordan@continual.ai
+documentation: |
+    https://docs.continual.ai/customer-churn/
+query: |
+  select * from dbt.demo_kkbox_churn.user_logs_agg

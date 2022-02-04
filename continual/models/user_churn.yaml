@@ -19,7 +19,7 @@ exclude_columns:
   - days_expired
 train:
   metric: roc_auc
+  excluded_model_types:
+    - FastAI
 query: |
   select * from dbt.demo_kkbox_churn.churn_model_definition as A
-  where msno in (select distinct msno from dbt.demo_kkbox_churn.user_logs_all)
-  and ts in (select distinct ts from dbt.demo_kkbox_churn.user_logs_all where msno = A.msno)

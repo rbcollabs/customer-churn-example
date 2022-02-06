@@ -13,10 +13,12 @@
 					{'name' : 'msno', 'type': 'text', 'entity': 'kkbox_user'},
 				],
 				'exclude_columns': ['next_transaction', 'most_recent_transaction', 'days_expired'],
-				},
 				'train': {
 					'metric' : 'roc_auc',
-				}
+					'excluded_model_types' : ['FastAI', 'KNN', 'NeuralNet', 'LightGBMLarge'],
+				},
+				},
+
 		}
   )
 }}

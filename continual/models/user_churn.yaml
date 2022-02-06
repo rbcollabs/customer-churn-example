@@ -1,5 +1,5 @@
 type: Model
-name: kkbox_user_churn
+name: user_churn
 index: msno
 time_index: ts
 target: is_churn
@@ -19,5 +19,10 @@ exclude_columns:
   - days_expired
 train:
   metric: roc_auc
+  excluded_model_types:
+    - FastAI
+    - KNN
+    - NeuralNet
+    - LightGBMLarge
 query: |
-  select * from dbt.demo_kkbox_churn.churn_model_definition
+  select * from kkbox.churn.churn_model_definition

@@ -13,4 +13,4 @@ columns:
   - name: city
     type: CATEGORICAL
 query: |
-  select * from dbt.demo_kkbox_churn.members_all
+  select * from kkbox.churn.members_all

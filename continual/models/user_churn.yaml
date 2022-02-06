@@ -21,5 +21,8 @@ train:
   metric: roc_auc
   excluded_model_types:
     - FastAI
+    - KNN
+    - NeuralNet
+    - LightGBMLarge
 query: |
-  select * from dbt.demo_kkbox_churn.churn_model_definition as A
+  select * from kkbox.churn.churn_model_definition

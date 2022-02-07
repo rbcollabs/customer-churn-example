@@ -53,3 +53,6 @@ with t as (
 select * from t
 where ts >= '{{ var("train_start") }}'
 and ts <= '{{ var("todays_date") }}'
+--remove the next two lines if you don't want to filter on only users who have log data
+and msno in (select distinct msno from {{ ref('user_logs_all') }})
+and ts in (select distinct ts from {{ ref('user_logs_all') }} where msno = t.msno)

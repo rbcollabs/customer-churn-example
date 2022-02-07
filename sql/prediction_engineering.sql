@@ -31,6 +31,9 @@ create or replace view as kkbox.churn.churn_model_definition(
 	select * from t
 	where ts >= '2016-06-01'
 	and ts <= '2017-04-01'
+	--remove the next two lines if you don't want to filter on only users who have log data
+	and msno in (select distinct msno from kkbox.churn.user_logs_all)
+	and ts in (select distinct ts from kkbox.churn.user_logs_all where msno = t.msno)
 );
 
 commit;

@@ -3,7 +3,7 @@ begin;
 
 set database_name = 'KKBOX';
 set schema_name = 'CHURN';
-set role_name = '<insert_role>';
+set role_name = 'ACCOUNTADMIN';
 
 -- create database & schema
 create database if not exists identifier($database_name);

@@ -2,11 +2,11 @@ USE database KKBOX;
 
 CREATE STAGE IF NOT EXISTS customer_churn;
 
-PUT file:///path/to/file/transactions.csv @customer_churn;
-PUT file:///path/to/file/transactions_v2.csv @customer_churn;
-PUT file:///path/to/file/user_logs.csv @customer_churn;
-PUT file:///path/to/file/user_logs_v2.csv @customer_churn;
-PUT file:///path/to/file/members_v3.csv @customer_churn;
+PUT file:////Volumes/MyT7/kkbox-churn-prediction-challenge/data/churn_comp_refresh/transactions.csv @customer_churn;
+PUT file:////Volumes/MyT7/kkbox-churn-prediction-challenge/data/churn_comp_refresh/transactions_v2.csv @customer_churn;
+PUT file:////Volumes/MyT7/kkbox-churn-prediction-challenge/data/churn_comp_refresh/user_logs.csv @customer_churn;
+PUT file:////Volumes/MyT7/kkbox-churn-prediction-challenge/data/churn_comp_refresh/user_logs_v2.csv @customer_churn;
+PUT file:////Volumes/MyT7/kkbox-churn-prediction-challenge/data/churn_comp_refresh/members_v3.csv @customer_churn;
 
 COPY INTO KKBOX.CHURN.TRANSACTIONS
 FROM @customer_churn files = ('transactions.csv.gz', 'transactions_v2.csv.gz')
